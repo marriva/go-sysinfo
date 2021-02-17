@@ -145,12 +145,13 @@ func parseOSRelease(content []byte) (*types.OSInfo, error) {
 
 func makeOSInfo(osRelease map[string]string) (*types.OSInfo, error) {
 	os := &types.OSInfo{
-		Type:     "linux",
-		Platform: osRelease["ID"],
-		Name:     osRelease["NAME"],
-		Version:  osRelease["VERSION"],
-		Build:    osRelease["BUILD_ID"],
-		Codename: osRelease["VERSION_CODENAME"],
+		Type:      "linux",
+		Platform:  osRelease["ID"],
+		Name:      osRelease["NAME"],
+		Version:   osRelease["VERSION"],
+		VersionID: osRelease["VERSION_ID"],
+		Build:     osRelease["BUILD_ID"],
+		Codename:  osRelease["VERSION_CODENAME"],
 	}
 
 	if os.Codename == "" {
